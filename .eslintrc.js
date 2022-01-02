@@ -9,6 +9,7 @@ module.exports = {
   extends: [
     'airbnb-base',
   ],
+  ignorePatterns: ['!.eleventy.js'],
   parserOptions: {
     ecmaVersion: 13,
   },

@@ -19,6 +19,8 @@ describe('clipboard.js initialization', () => {
     plugin.configFunction(eleventyConfig, {
       clipboardJSVersion: '2.0.0',
       buttonClass: 'test-button',
+      successMessage: 'Success!!',
+      failureMessage: 'Failure!!',
     });
     expect(mockAddShortcode).toHaveBeenCalledTimes(1);
     const onloadScript = mockAddShortcode.mock.calls[0][1]();

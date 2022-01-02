@@ -9,14 +9,14 @@ Plugin consists of the following contents.
 
 `markdown-it custom renderer`
 
-The code fence with language are attached clipboard copy button(nothing to do with non-language block).
+This custom renderer attaches clipboard copy button to code block with language(nothing to do with non-language block).
 Of course, it only supports eleventy markdown template(markdown-it).
 
 The clipboard button is provided by [Material Design Icons](https://materialdesignicons.com/) `content-copy` icon.
 
 `eleventy shortcode function`
 
-This shortcode initializes clipboard.js on window.onload.
+This shortcode initializes clipboard.js on window.onload event.
 If clipboard copy succeeded, it shows a tooltips with message(default to `Copied!`).
 Tooltips use [Primer Tooltips](https://primer.style/css/components/tooltips) CSS framework.
 
@@ -74,4 +74,40 @@ Add 11ty shortcode(named `initClipboardJS`) function your template. This will ge
 
 ## Configuration
 
-T.B.D
+plugin options
+
+```js
+eleventyConfig.addPlugin(codeClipboard, {
+  // Version of clipboard.js to use. default to 2.0.8.
+  clipboardJSVersion: '2.0.8',
+  // Name of clipboard button css class. default to code-copy.
+  // This class is also used to renderer
+  // Click event of element with this class is listened by clipboard.js.
+  buttonClass: 'code-copy',
+  // Message if copy succeeds. default to "Copied!"
+  successMessage: 'Copied!',
+  // Message if copy failes. default to "Failed..."
+  failureMessage: 'Failed...',
+});
+```
+
+renderer options(markdown-it)
+
+```js
+const markdownLibrary = markdownIt({
+  html: true
+}).use(codeClipboard.markdownItCopyButton, {
+  // Style attributes of clipboard icon. default to the following.
+  iconStyle: 'font-size: 15px; opacity: 0.8;',
+  // Class attributes of clipboard icon. default to "mdi mdi-content-copy".
+  iconClass: 'mdi mdi-content-copy',
+  // Name of HTML tag of clipboard icon. default to span.
+  iconTag: 'span',
+  // Style attributes of button. default to the following.
+  buttonStyle: 'position: absolute; top: 7.5px; right: 6px; cursor: pointer; outline: none; opacity: 0.8;',
+  // Additional class attributes in addition to the plugin option(buttonClass). default to empty.
+  additionalButtonClass: '',
+  // Name of title attribute in Button. default to "Copy".
+  title: 'Copy',
+});
+```
