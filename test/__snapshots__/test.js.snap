@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`clipboard.js initialization custom plugin config 1`] = `
-"<script>function toggleTooltip(e,o){e.trigger.className.includes(\\"tooltipped\\")||(e.trigger.children[0].className=\\"tooltipped tooltipped-s\\",e.trigger.children[0].ariaLabel=o),setTimeout(()=>{e.trigger.children[0].className=\\"\\",e.trigger.children[0].ariaLabel=\\"\\"},2e3)}window.onload=()=>{const e=new ClipboardJS(\\".test-button\\");e.on(\\"success\\",e=>toggleTooltip(e,\\"Copied!\\")),e.on(\\"error\\",e=>toggleTooltip(e,\\"Failed...\\"))};</script>
+"<script>function toggleTooltip(e,o){e.trigger.className.includes(\\"tooltipped\\")||(e.trigger.children[0].className=\\"tooltipped tooltipped-s\\",e.trigger.children[0].ariaLabel=o),setTimeout(()=>{e.trigger.children[0].className=\\"\\",e.trigger.children[0].ariaLabel=\\"\\"},2e3)}window.onload=()=>{const e=new ClipboardJS(\\".test-button\\");e.on(\\"success\\",e=>toggleTooltip(e,\\"Success!!\\")),e.on(\\"error\\",e=>toggleTooltip(e,\\"Failure!!\\"))};</script>
 <script src=\\"https://cdn.jsdelivr.net/npm/clipboard@2.0.0/dist/clipboard.js\\"></script>"
 `;
 

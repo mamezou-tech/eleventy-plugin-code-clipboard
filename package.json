@@ -7,14 +7,16 @@
   "scripts": {
     "test": "jest ./test/test.js",
     "test:update-snapshot": "jest ./test/test.js --updateSnapshot",
-    "lint": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "lint": "eslint ."
   },
   "author": "kudoh",
   "license": "MIT",
   "keywords": [
-    "11ty plugin",
-    "eleventy plugin",
-    "clipboard"
+    "11ty-plugin",
+    "eleventy-plugin",
+    "clipboard",
+    "markdown-it"
   ],
   "devDependencies": {
     "eslint": "^8.6.0",

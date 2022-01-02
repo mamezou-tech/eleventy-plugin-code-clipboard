@@ -4,8 +4,10 @@ const UglifyJS = require('uglify-js');
 
 const defaultPluginOptions = {
   clipboardJSVersion: '2.0.8',
-  buttonClass: 'code-copy'
-}
+  buttonClass: 'code-copy',
+  successMessage: 'Copied!',
+  failureMessage: 'Failed...',
+};
 
 const defaultRendererOptions = {
   iconStyle: 'font-size: 15px; opacity: 0.8;',
@@ -20,7 +22,7 @@ function renderCode(origRule, pluginOptions, rendererOptions) {
   return (tokens, idx, options, env, self) => {
     const origRendered = origRule(tokens, idx, options, env, self);
     if (tokens[idx].tag === 'code' && !tokens[idx].info) {
-      return origRendered
+      return origRendered;
     }
     if (tokens[idx].content.length === 0) {
       return origRendered;
@@ -42,7 +44,9 @@ function renderCode(origRule, pluginOptions, rendererOptions) {
 
 function initClipboardJS(options) {
   const originSource = fs.readFileSync(path.join(__dirname, '/init-clipboard.js')).toString();
-  const script = originSource.replace('new ClipboardJS(\'\')', `new ClipboardJS(\'.${options.buttonClass}\')`);
+  const script = originSource.replace('new ClipboardJS(\'\')', `new ClipboardJS('.${options.buttonClass}')`)
+    .replace('Copied!', options.successMessage)
+    .replace('Failed...', options.failureMessage);
   const minified = UglifyJS.minify(script);
   if (minified.error) {
     throw minified.error;
@@ -62,8 +66,12 @@ module.exports = {
       const rendererFallbackOptions = {
         ...defaultRendererOptions,
         ...rendererOptions,
-      }
-      md.renderer.rules.fence = renderCode(md.renderer.rules.fence, pluginFallbackOptions, rendererFallbackOptions);
-    }
+      };
+      md.renderer.rules.fence = renderCode(
+        md.renderer.rules.fence,
+        pluginFallbackOptions,
+        rendererFallbackOptions,
+      );
+    };
   },
-}
+};
