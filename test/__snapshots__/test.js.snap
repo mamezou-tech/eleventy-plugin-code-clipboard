@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`clipboard.js initialization custom plugin config 1`] = `
+"<script>function toggleTooltip(e,o){e.trigger.className.includes(\\"tooltipped\\")||(e.trigger.children[0].className=\\"tooltipped tooltipped-s\\",e.trigger.children[0].ariaLabel=o),setTimeout(()=>{e.trigger.children[0].className=\\"\\",e.trigger.children[0].ariaLabel=\\"\\"},2e3)}window.onload=()=>{const e=new ClipboardJS(\\"\\");e.on(\\"success\\",e=>toggleTooltip(e,\\"Copied!\\")),e.on(\\"error\\",e=>toggleTooltip(e,\\"Failed...\\"))};</script>
+<script src=\\"https://cdn.jsdelivr.net/npm/clipboard@2.0.0/dist/clipboard.js\\"></script>"
+`;
+
+exports[`clipboard.js initialization default plugin config 1`] = `
+"<script>function toggleTooltip(e,o){e.trigger.className.includes(\\"tooltipped\\")||(e.trigger.children[0].className=\\"tooltipped tooltipped-s\\",e.trigger.children[0].ariaLabel=o),setTimeout(()=>{e.trigger.children[0].className=\\"\\",e.trigger.children[0].ariaLabel=\\"\\"},2e3)}window.onload=()=>{const e=new ClipboardJS(\\"\\");e.on(\\"success\\",e=>toggleTooltip(e,\\"Copied!\\")),e.on(\\"error\\",e=>toggleTooltip(e,\\"Failed...\\"))};</script>
+<script src=\\"https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.js\\"></script>"
+`;
+
+exports[`custom renderer custom renderer config 1`] = `
+"
+<div style=\\"position: relative\\">
+  <pre class=\\"language-yaml\\"><code>test: unit-test<br />type: 11ty</code></pre>
+  <button class=\\"test-button another-button-class\\"
+    data-clipboard-target=\\"#code-0\\"
+    style=\\"opacity: 0.1;\\" title=\\"test-title\\">
+    <span>
+      <test-tag style=\\"font-size: 10px; opacity: 0.1;\\" class=\\"test-copy\\"></test-tag>
+    </span>
+  </button>
+</div>
+"
+`;
+
+exports[`custom renderer default renderer config 1`] = `
+"
+<div style=\\"position: relative\\">
+  <pre class=\\"language-yaml\\"><code>test: unit-test<br />type: 11ty</code></pre>
+  <button class=\\"code-copy \\"
+    data-clipboard-target=\\"#code-0\\"
+    style=\\"position: absolute; top: 7.5px; right: 6px; cursor: pointer; outline: none; opacity: 0.8;\\" title=\\"Copy\\">
+    <span>
+      <span style=\\"font-size: 15px; opacity: 0.8;\\" class=\\"mdi mdi-content-copy\\"></span>
+    </span>
+  </button>
+</div>
+"
+`;
+
+exports[`custom renderer non-lang-code token(not applied clipboard) 1`] = `"<pre class=\\"language-yaml\\"><code>test: unit-test<br />type: 11ty</code></pre>"`;
