@@ -42,7 +42,7 @@ function renderCode(origRule, pluginOptions, rendererOptions) {
 
 function initClipboardJS(options) {
   const originSource = fs.readFileSync(path.join(__dirname, '/init-clipboard.js')).toString();
-  const script = originSource.replace('new ClipboardJS("")', `new ClipboardJS(".${options.buttonClass}")`);
+  const script = originSource.replace('new ClipboardJS(\'\')', `new ClipboardJS(\'.${options.buttonClass}\')`);
   const minified = UglifyJS.minify(script);
   if (minified.error) {
     throw minified.error;
