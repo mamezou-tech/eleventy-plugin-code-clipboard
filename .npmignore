@@ -1,4 +1,5 @@
 test
 .github
-.eslintrc
+.eslintrc.js
 example
+.idea
