@@ -1,0 +1,14 @@
+@import url("https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css");
+
+@import url("https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/Primer/19.1.1/tooltips.min.css");
+
+/* Overwrite primer definitions */
+.tooltipped::before {
+    color: #fcf !important;
+}
+
+.tooltipped::after {
+    background-color: #fcf !important;
+    color: #303 !important;
+}
