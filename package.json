@@ -1,6 +1,6 @@
 {
   "name": "eleventy-plugin-code-clipboard",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "eleventy plugin to copy fence into clipboard",
   "homepage": "https://github.com/mamezou-tech/eleventy-plugin-code-clipboard",
   "main": ".eleventy.js",

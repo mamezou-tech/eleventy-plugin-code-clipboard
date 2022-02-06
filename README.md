@@ -108,6 +108,9 @@ const markdownLibrary = markdownIt({
   iconClass: 'mdi mdi-content-copy',
   // Name of HTML tag of clipboard icon. default to span.
   iconTag: 'span',
+  // Name of clipboard button css class. default to code-copy.
+  // This class should be the same as the plugin options
+  buttonClass: 'code-copy',
   // Style attributes of button. default to the following.
   buttonStyle: 'position: absolute; top: 7.5px; right: 6px; cursor: pointer; outline: none; opacity: 0.8;',
   // Additional class attributes in addition to the plugin option(buttonClass). default to empty.
@@ -119,7 +122,7 @@ const markdownLibrary = markdownIt({
 
 ## Example
 
-see [here](/example)
+see [here](https://github.com/mamezou-tech/eleventy-plugin-code-clipboard/tree/main/example)
 
 ## Tips
 
