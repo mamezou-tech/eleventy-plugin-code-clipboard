@@ -13,12 +13,13 @@ const defaultRendererOptions = {
   iconStyle: 'font-size: 15px; opacity: 0.8;',
   iconClass: 'mdi mdi-content-copy',
   iconTag: 'span',
+  buttonClass: 'code-copy',
   buttonStyle: 'position: absolute; top: 7.5px; right: 6px; cursor: pointer; outline: none; opacity: 0.8;',
   additionalButtonClass: '',
   title: 'Copy',
 };
 
-function renderCode(origRule, pluginOptions, rendererOptions) {
+function renderCode(origRule, rendererOptions) {
   return (tokens, idx, options, env, self) => {
     const origRendered = origRule(tokens, idx, options, env, self);
     if (tokens[idx].tag === 'code' && !tokens[idx].info) {
@@ -30,7 +31,7 @@ function renderCode(origRule, pluginOptions, rendererOptions) {
     return `
 <div style="position: relative">
   ${origRendered.replace(/<code /, `<code id="code-${idx}"`)}
-  <button class="${pluginOptions.buttonClass} ${rendererOptions.additionalButtonClass}"
+  <button class="${rendererOptions.buttonClass} ${rendererOptions.additionalButtonClass}"
     data-clipboard-target="#code-${idx}"
     style="${rendererOptions.buttonStyle}" title="${rendererOptions.title}">
     <span>
@@ -62,16 +63,15 @@ module.exports = {
       ...pluginOptions,
     };
     eleventyConfig.addShortcode('initClipboardJS', () => initClipboardJS(pluginFallbackOptions));
-    this.markdownItCopyButton = (md, rendererOptions) => {
-      const rendererFallbackOptions = {
-        ...defaultRendererOptions,
-        ...rendererOptions,
-      };
-      md.renderer.rules.fence = renderCode(
-        md.renderer.rules.fence,
-        pluginFallbackOptions,
-        rendererFallbackOptions,
-      );
+  },
+  markdownItCopyButton(md, rendererOptions) {
+    const rendererFallbackOptions = {
+      ...defaultRendererOptions,
+      ...rendererOptions,
     };
+    md.renderer.rules.fence = renderCode(
+      md.renderer.rules.fence,
+      rendererFallbackOptions,
+    );
   },
 };

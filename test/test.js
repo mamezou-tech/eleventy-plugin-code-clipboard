@@ -57,6 +57,7 @@ describe('custom renderer', () => {
       iconStyle: 'font-size: 10px; opacity: 0.1;',
       iconClass: 'test-copy',
       iconTag: 'test-tag',
+      buttonClass: 'test-button',
       buttonStyle: 'opacity: 0.1;',
       additionalButtonClass: 'another-button-class',
       title: 'test-title',
