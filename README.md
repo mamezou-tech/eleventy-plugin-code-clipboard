@@ -132,6 +132,7 @@ To avoid this, overwrite the primer tooltip definition with your favorite color 
 ```css
 .tooltipped::before {
   color: #fcf !important;
+  border-bottom-color: #ffccff !important;
 }
 
 .tooltipped::after {
