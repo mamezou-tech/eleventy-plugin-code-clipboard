@@ -22,7 +22,10 @@ const defaultRendererOptions = {
 function renderCode(origRule, rendererOptions) {
   return (tokens, idx, options, env, self) => {
     const origRendered = origRule(tokens, idx, options, env, self);
-    if (tokens[idx].tag === 'code' && !tokens[idx].info) {
+    if (tokens[idx].tag !== 'code') {
+      return origRendered;
+    }
+    if (!tokens[idx].info || tokens[idx].info === 'mermaid') {
       return origRendered;
     }
     if (tokens[idx].content.length === 0) {
