@@ -2,12 +2,12 @@
 
 exports[`clipboard.js initialization custom plugin config 1`] = `
 "<script>function showTooltip(o,e){o.trigger.className.includes(\\"tooltipped\\")||(o.trigger.children[0].className=\\"tooltipped tooltipped-s\\",o.trigger.children[0].ariaLabel=e)}window.onload=()=>{const o=new ClipboardJS(\\".test-button\\");o.on(\\"success\\",o=>showTooltip(o,\\"Success!!\\")),o.on(\\"error\\",o=>showTooltip(o,\\"Failure!!\\"))};</script>
-<script src=\\"https://cdn.jsdelivr.net/npm/clipboard@2.0.0/dist/clipboard.js\\"></script>"
+<script async src=\\"https://cdn.jsdelivr.net/npm/clipboard@2.0.0/dist/clipboard.js\\">function showTooltip(o,e){o.trigger.className.includes(\\"tooltipped\\")||(o.trigger.children[0].className=\\"tooltipped tooltipped-s\\",o.trigger.children[0].ariaLabel=e)}window.onload=()=>{const o=new ClipboardJS(\\".test-button\\");o.on(\\"success\\",o=>showTooltip(o,\\"Success!!\\")),o.on(\\"error\\",o=>showTooltip(o,\\"Failure!!\\"))};</script>"
 `;
 
 exports[`clipboard.js initialization default plugin config 1`] = `
 "<script>function showTooltip(o,e){o.trigger.className.includes(\\"tooltipped\\")||(o.trigger.children[0].className=\\"tooltipped tooltipped-s\\",o.trigger.children[0].ariaLabel=e)}window.onload=()=>{const o=new ClipboardJS(\\".code-copy\\");o.on(\\"success\\",o=>showTooltip(o,\\"Copied!\\")),o.on(\\"error\\",o=>showTooltip(o,\\"Failed...\\"))};</script>
-<script src=\\"https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.js\\"></script>"
+<script async src=\\"https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.js\\">function showTooltip(o,e){o.trigger.className.includes(\\"tooltipped\\")||(o.trigger.children[0].className=\\"tooltipped tooltipped-s\\",o.trigger.children[0].ariaLabel=e)}window.onload=()=>{const o=new ClipboardJS(\\".code-copy\\");o.on(\\"success\\",o=>showTooltip(o,\\"Copied!\\")),o.on(\\"error\\",o=>showTooltip(o,\\"Failed...\\"))};</script>"
 `;
 
 exports[`custom renderer custom renderer config 1`] = `
