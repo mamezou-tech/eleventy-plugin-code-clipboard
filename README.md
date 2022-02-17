@@ -13,7 +13,7 @@ The plugin consists of the following contents.
 
 `markdown-it custom renderer`
 
-This custom renderer attaches clipboard copy button to code block with language(does nothing for non-language block).
+This custom renderer attaches clipboard copy button to code block with language(does nothing for non-language/mermaid block).
 Of course, it only supports eleventy markdown template(markdown-it).
 
 The clipboard button is provided by [Material Design Icons](https://materialdesignicons.com/) `content-copy` icon.

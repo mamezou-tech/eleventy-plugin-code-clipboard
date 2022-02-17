@@ -22,7 +22,10 @@ const defaultRendererOptions = {
 function renderCode(origRule, rendererOptions) {
   return (tokens, idx, options, env, self) => {
     const origRendered = origRule(tokens, idx, options, env, self);
-    if (tokens[idx].tag === 'code' && !tokens[idx].info) {
+    if (tokens[idx].tag !== 'code') {
+      return origRendered;
+    }
+    if (!tokens[idx].info || tokens[idx].info === 'mermaid') {
       return origRendered;
     }
     if (tokens[idx].content.length === 0) {
@@ -53,7 +56,7 @@ function initClipboardJS(options) {
     throw minified.error;
   }
   return `<script>${minified.code}</script>
-<script src="https://cdn.jsdelivr.net/npm/clipboard@${options.clipboardJSVersion}/dist/clipboard.js"></script>`;
+<script async src="https://cdn.jsdelivr.net/npm/clipboard@${options.clipboardJSVersion}/dist/clipboard.js">${minified.code}</script>`;
 }
 
 module.exports = {
