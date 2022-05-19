@@ -5,8 +5,8 @@ function showTooltip(el, msg) {
   }
 }
 
-window.onload = () => {
+window.addEventListener('load', () => {
   const clipboard = new ClipboardJS(''); // replaced by plugin
   clipboard.on('success', (el) => showTooltip(el, 'Copied!'));
   clipboard.on('error', (el) => showTooltip(el, 'Failed...'));
-};
+});
