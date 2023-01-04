@@ -13,13 +13,12 @@ The clipboard button is by default the [Material Design Icons](https://materiald
 ### initClipboardJS
 The shortcode `{% initClipboardJS %}` should be placed in your file (I put it in my `article.njk` template since I want to enable copying code in my articles). Make sure you include this, as it is responsible for initializing `clipboard.js` on window.onload event.
 
-> Warning: At the present moment, the tooltips are not working as intended by the original developer
+[Warning: At the present moment, the tooltips are not working as intended by the original developer]
 
 ~~If clipboard copy succeeded, it shows a tooltips with message(default to `Copied!`).~~
 ~~Tooltips use [Primer Tooltips](https://primer.style/css/components/tooltips) CSS framework.~~
 
-## Usage
->  Note: these instructions are for usage of both my code and the upstream original plugin (edited for clarity).
+## Usage [Note: these are instructions for usage of the upstream original plugin (edited for clarity).]
 
 ### `.eleventy.js`
 Add the following code to project's `.eleventy.js`.
