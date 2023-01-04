@@ -10,6 +10,7 @@ const defaultPluginOptions = {
 };
 
 const defaultRendererOptions = {
+  renderMode: 'icon',
   iconStyle: 'font-size: 15px; opacity: 0.8;',
   iconClass: 'mdi mdi-content-copy',
   iconTag: 'span',
@@ -31,21 +32,43 @@ function renderCode(origRule, rendererOptions) {
     if (tokens[idx].content.length === 0) {
       return origRendered;
     }
+    if (rendererOptions.renderMode === 'svg-sprite') {
     return `
+  <div style="position: relative">
+    ${origRendered.replace(/<code /, `<code id="code-${idx}"`)}
+    <button class="${rendererOptions.buttonClass} ${rendererOptions.additionalButtonClass}"
+      data-clipboard-target="#code-${idx}"
+      style="${rendererOptions.buttonStyle}" title="${rendererOptions.title}">
+      <svg style="${rendererOptions.iconStyle}" class="${rendererOptions.iconClass} ${rendererOptions.iconClass}-${rendererOptions.iconName}"><use xlink:href="#${rendererOptions.iconClass}-${rendererOptions.iconName}"></use></svg>
+    </button>
+  </div>
+`; } else if (rendererOptions.renderMode === 'custom'){
+  return `
 <div style="position: relative">
   ${origRendered.replace(/<code /, `<code id="code-${idx}"`)}
   <button class="${rendererOptions.buttonClass} ${rendererOptions.additionalButtonClass}"
     data-clipboard-target="#code-${idx}"
     style="${rendererOptions.buttonStyle}" title="${rendererOptions.title}">
     <span>
-      <${rendererOptions.iconTag} style="${rendererOptions.iconStyle}" class="${rendererOptions.iconClass}"></${rendererOptions.iconTag}>
+      ${rendererOptions.customCode}
     </span>
   </button>
 </div>
-`;
+`; } else {
+    return `
+  <div style="position: relative">
+    ${origRendered.replace(/<code /, `<code id="code-${idx}"`)}
+    <button class="${rendererOptions.buttonClass} ${rendererOptions.additionalButtonClass}"
+      data-clipboard-target="#code-${idx}"
+      style="${rendererOptions.buttonStyle}" title="${rendererOptions.title}">
+      <span>
+        <${rendererOptions.iconTag} style="${rendererOptions.iconStyle}" class="${rendererOptions.iconClass}"></${rendererOptions.iconTag}>
+      </span>
+    </button>
+  </div>
+`; }
   };
 }
-
 function initClipboardJS(options) {
   const originSource = fs.readFileSync(path.join(__dirname, '/init-clipboard.js')).toString();
   const script = originSource.replace('new ClipboardJS(\'\')', `new ClipboardJS('.${options.buttonClass}')`)
