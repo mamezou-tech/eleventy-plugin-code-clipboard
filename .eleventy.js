@@ -39,7 +39,7 @@ function renderCode(origRule, rendererOptions) {
     <button class="${rendererOptions.buttonClass} ${rendererOptions.additionalButtonClass}"
       data-clipboard-target="#code-${idx}"
       style="${rendererOptions.buttonStyle}" title="${rendererOptions.title}">
-      <svg style="${rendererOptions.iconStyle}" class="${rendererOptions.iconClass} ${rendererOptions.iconClass}-${rendererOptions.iconName}"><use xlink:href="#${rendererOptions.iconClass}-${rendererOptions.iconName}"></use></svg>
+      <svg style="${rendererOptions.iconStyle}" class="${rendererOptions.iconClass}"><use xlink:href="#${rendererOptions.iconDefinition}"></use></svg>
     </button>
   </div>
 `; } else if (rendererOptions.renderMode === 'custom'){
