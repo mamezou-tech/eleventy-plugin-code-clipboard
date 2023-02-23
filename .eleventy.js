@@ -3,7 +3,7 @@ const path = require('path');
 const UglifyJS = require('uglify-js');
 
 const defaultPluginOptions = {
-  clipboardJSVersion: '2.0.8',
+  clipboardJSVersion: '2.0.11',
   buttonClass: 'code-copy',
   successMessage: 'Copied!',
   failureMessage: 'Failed...',
