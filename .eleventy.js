@@ -56,7 +56,7 @@ async function initClipboardJS(options) {
     throw minified.error;
   }
   return `<script>${minified.code}</script>
-<script async src="https://cdn.jsdelivr.net/npm/clipboard@${options.clipboardJSVersion}/dist/clipboard.js"></script>`;
+<script async src="https://cdn.jsdelivr.net/npm/clipboard@${options.clipboardJSVersion}/dist/clipboard.min.js"></script>`;
 }
 
 module.exports = {
