@@ -46,8 +46,8 @@ function renderCode(origRule, rendererOptions) {
   };
 }
 
-function initClipboardJS(options) {
-  const originSource = fs.readFileSync(path.join(__dirname, '/init-clipboard.js')).toString();
+async function initClipboardJS(options) {
+  const originSource = (await fs.promises.readFile(path.join(__dirname, '/init-clipboard.js'))).toString();
   const script = originSource.replace('new ClipboardJS(\'\')', `new ClipboardJS('.${options.buttonClass}')`)
     .replace('Copied!', options.successMessage)
     .replace('Failed...', options.failureMessage);
@@ -65,7 +65,7 @@ module.exports = {
       ...defaultPluginOptions,
       ...pluginOptions,
     };
-    eleventyConfig.addShortcode('initClipboardJS', () => initClipboardJS(pluginFallbackOptions));
+    eleventyConfig.addNunjucksAsyncShortcode('initClipboardJS', async () => await initClipboardJS(pluginFallbackOptions));
   },
   markdownItCopyButton(md, rendererOptions) {
     const rendererFallbackOptions = {
