@@ -65,7 +65,7 @@ module.exports = {
       ...defaultPluginOptions,
       ...pluginOptions,
     };
-    eleventyConfig.addNunjucksAsyncShortcode('initClipboardJS', async () => await initClipboardJS(pluginFallbackOptions));
+    eleventyConfig.addAsyncShortcode('initClipboardJS', async () => initClipboardJS(pluginFallbackOptions));
   },
   markdownItCopyButton(md, rendererOptions) {
     const rendererFallbackOptions = {
