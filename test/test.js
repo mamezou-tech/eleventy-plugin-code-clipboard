@@ -1,21 +1,21 @@
 const plugin = require('..');
 
 const mockAddShortcode = jest.fn();
-const eleventyConfig = { addShortcode: mockAddShortcode };
+const eleventyConfig = { addAsyncShortcode: mockAddShortcode };
 
 describe('clipboard.js initialization', () => {
   afterEach(() => {
     mockAddShortcode.mockClear();
   });
 
-  test('default plugin config', () => {
+  test('default plugin config', async () => {
     plugin.configFunction(eleventyConfig);
     expect(mockAddShortcode).toHaveBeenCalledTimes(1);
-    const onloadScript = mockAddShortcode.mock.calls[0][1]();
+    const onloadScript = await mockAddShortcode.mock.calls[0][1]();
     expect(onloadScript).toMatchSnapshot();
   });
 
-  test('custom plugin config', () => {
+  test('custom plugin config', async () => {
     plugin.configFunction(eleventyConfig, {
       clipboardJSVersion: '2.0.0',
       buttonClass: 'test-button',
@@ -23,7 +23,7 @@ describe('clipboard.js initialization', () => {
       failureMessage: 'Failure!!',
     });
     expect(mockAddShortcode).toHaveBeenCalledTimes(1);
-    const onloadScript = mockAddShortcode.mock.calls[0][1]();
+    const onloadScript = await mockAddShortcode.mock.calls[0][1]();
     expect(onloadScript).toMatchSnapshot();
   });
 });
