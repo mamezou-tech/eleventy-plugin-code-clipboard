@@ -3,7 +3,7 @@ const path = require('path');
 const UglifyJS = require('uglify-js');
 
 const defaultPluginOptions = {
-  clipboardJSVersion: '2.0.8',
+  clipboardJSVersion: '2.0.11',
   buttonClass: 'code-copy',
   successMessage: 'Copied!',
   failureMessage: 'Failed...',
@@ -46,8 +46,8 @@ function renderCode(origRule, rendererOptions) {
   };
 }
 
-function initClipboardJS(options) {
-  const originSource = fs.readFileSync(path.join(__dirname, '/init-clipboard.js')).toString();
+async function initClipboardJS(options) {
+  const originSource = (await fs.promises.readFile(path.join(__dirname, '/init-clipboard.js'))).toString();
   const script = originSource.replace('new ClipboardJS(\'\')', `new ClipboardJS('.${options.buttonClass}')`)
     .replace('Copied!', options.successMessage)
     .replace('Failed...', options.failureMessage);
@@ -56,7 +56,7 @@ function initClipboardJS(options) {
     throw minified.error;
   }
   return `<script>${minified.code}</script>
-<script async src="https://cdn.jsdelivr.net/npm/clipboard@${options.clipboardJSVersion}/dist/clipboard.js"></script>`;
+<script async src="https://cdn.jsdelivr.net/npm/clipboard@${options.clipboardJSVersion}/dist/clipboard.min.js"></script>`;
 }
 
 module.exports = {
@@ -65,7 +65,7 @@ module.exports = {
       ...defaultPluginOptions,
       ...pluginOptions,
     };
-    eleventyConfig.addShortcode('initClipboardJS', () => initClipboardJS(pluginFallbackOptions));
+    eleventyConfig.addAsyncShortcode('initClipboardJS', async () => initClipboardJS(pluginFallbackOptions));
   },
   markdownItCopyButton(md, rendererOptions) {
     const rendererFallbackOptions = {
