@@ -54,7 +54,8 @@ describe('custom renderer', () => {
       buttonClass: 'test-button',
     });
     const customRendererConfig = {
-      iconStyle: 'font-size: 10px; opacity: 0.1;',
+      iconifyUrl: 'https://example.com/custom.svg',
+      iconStyle: 'width: 24px; height: 24px;',
       iconClass: 'test-copy',
       iconTag: 'test-tag',
       buttonClass: 'test-button',

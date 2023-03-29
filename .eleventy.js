@@ -8,13 +8,13 @@ const defaultPluginOptions = {
   successMessage: 'Copied!',
   failureMessage: 'Failed...',
 };
-
 const defaultRendererOptions = {
-  iconStyle: 'font-size: 15px; opacity: 0.8;',
-  iconClass: 'mdi mdi-content-copy',
+  iconifyUrl: 'https://api.iconify.design/mdi/content-copy.svg',
+  iconStyle: 'width: 16px; height: 16px;',
+  iconClass: '',
   iconTag: 'span',
   buttonClass: 'code-copy',
-  buttonStyle: 'position: absolute; top: 7.5px; right: 6px; cursor: pointer; outline: none; opacity: 0.8;',
+  buttonStyle: 'position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;',
   additionalButtonClass: '',
   title: 'Copy',
 };
@@ -37,9 +37,7 @@ function renderCode(origRule, rendererOptions) {
   <button class="${rendererOptions.buttonClass} ${rendererOptions.additionalButtonClass}"
     data-clipboard-target="#code-${idx}"
     style="${rendererOptions.buttonStyle}" title="${rendererOptions.title}">
-    <span>
-      <${rendererOptions.iconTag} style="${rendererOptions.iconStyle}" class="${rendererOptions.iconClass}"></${rendererOptions.iconTag}>
-    </span>
+    <${rendererOptions.iconTag} style="display:inline-block;background:url(${rendererOptions.iconifyUrl}) no-repeat center center / contain;${rendererOptions.iconStyle}" class="${rendererOptions.iconClass}"></${rendererOptions.iconTag}>
   </button>
 </div>
 `;
