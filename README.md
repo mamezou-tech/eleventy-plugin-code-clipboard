@@ -51,7 +51,7 @@ module.exports = function (eleventyConfig) {
 }
 ```
 
-Add Primer/MDI CSS to your CSS or HTML.
+Add Primer CSS to your CSS or HTML.
 
 ```css
 @import url("https://cdnjs.cloudflare.com/ajax/libs/Primer/19.1.1/tooltips.min.css");
