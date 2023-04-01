@@ -125,10 +125,10 @@ const markdownLibrary = markdownIt({
 
 see [here](https://github.com/mamezou-tech/eleventy-plugin-code-clipboard/tree/main/example)
 
-## Migration(from 0.1.0)
+## Migration(v0.1.0)
 
 Prior to version 0.1.0, we used [Material Design Icons WebFont](https://pictogrammers.com/docs/library/mdi/getting-started/webfont/). 
-However, due to size issues, we have switched to using [Iconify](https://iconify.design/) SVG since then. 
+However, due to size issues, we have switched to using [Iconify](https://iconify.design/) SVG. 
 
 There are some breaking changes that you should be aware of:
 
