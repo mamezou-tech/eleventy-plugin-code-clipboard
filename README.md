@@ -16,7 +16,7 @@ The plugin consists of the following contents.
 This custom renderer attaches clipboard copy button to code block with language(does nothing for non-language/mermaid block).
 Of course, it only supports eleventy markdown template(markdown-it).
 
-The clipboard button is provided by [Material Design Icons](https://materialdesignicons.com/) `content-copy` icon.
+The clipboard button is provided by [Iconify](https://iconify.design/) [content-copy](https://icon-sets.iconify.design/mdi/content-copy/) icon(default).
 
 `eleventy shortcode function`
 
@@ -26,7 +26,7 @@ Tooltips use [Primer Tooltips](https://primer.style/css/components/tooltips) CSS
 
 ## Usage
 
-Add the following code to project's `.eleventy.js`.
+Add the following code to project's `.eleventy.js`(or `eleventy.config.js`).
 
 ```js
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -51,17 +51,15 @@ module.exports = function (eleventyConfig) {
 }
 ```
 
-Add Primer/MDI CSS to your CSS or HTML.
+Add Primer CSS to your CSS or HTML.
 
 ```css
-@import url("https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/Primer/19.1.1/tooltips.min.css");
 ```
 
 or
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/19.1.1/tooltips.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 ```
 
@@ -83,8 +81,8 @@ plugin options
 
 ```js
 eleventyConfig.addPlugin(codeClipboard, {
-  // Version of clipboard.js to use. default to 2.0.8.
-  clipboardJSVersion: '2.0.8',
+  // Version of clipboard.js to use. default to 2.0.11.
+  clipboardJSVersion: '2.0.11',
   // Name of clipboard button css class. default to code-copy.
   // This class is also used to renderer
   // Click event of element with this class is listened by clipboard.js.
@@ -102,17 +100,20 @@ renderer options(markdown-it)
 const markdownLibrary = markdownIt({
   html: true
 }).use(codeClipboard.markdownItCopyButton, {
+  // Iconfiy icon URL. default to the following. 
+  // To make changes, please refer to the Iconify page(https://icon-sets.iconify.design/)
+  iconifyUrl: 'https://api.iconify.design/mdi/content-copy.svg',
   // Style attributes of clipboard icon. default to the following.
-  iconStyle: 'font-size: 15px; opacity: 0.8;',
-  // Class attributes of clipboard icon. default to "mdi mdi-content-copy".
-  iconClass: 'mdi mdi-content-copy',
+  iconStyle: 'width: 16px; height: 16px;',
+  // Class attributes of clipboard icon. default to empty.
+  iconClass: '',
   // Name of HTML tag of clipboard icon. default to span.
   iconTag: 'span',
   // Name of clipboard button css class. default to code-copy.
   // This class should be the same as the plugin options
   buttonClass: 'code-copy',
   // Style attributes of button. default to the following.
-  buttonStyle: 'position: absolute; top: 7.5px; right: 6px; cursor: pointer; outline: none; opacity: 0.8;',
+  buttonStyle: 'position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;',
   // Additional class attributes in addition to the plugin option(buttonClass). default to empty.
   additionalButtonClass: '',
   // Name of title attribute in Button. default to "Copy".
@@ -123,6 +124,17 @@ const markdownLibrary = markdownIt({
 ## Example
 
 see [here](https://github.com/mamezou-tech/eleventy-plugin-code-clipboard/tree/main/example)
+
+## Migration(v0.1.0)
+
+Prior to version 0.1.0, we used [Material Design Icons WebFont](https://pictogrammers.com/docs/library/mdi/getting-started/webfont/). 
+However, due to size issues, we have switched to using [Iconify](https://iconify.design/) SVG. 
+
+There are some breaking changes that you should be aware of:
+
+- CSS for Material Design Icons(WebFont) is no longer necessary.
+- Iconify URLs have been added to the renderer settings.
+- Default values for iconStyle/iconClass have been changed.
 
 ## Tips
 

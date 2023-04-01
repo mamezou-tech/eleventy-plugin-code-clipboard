@@ -17,9 +17,7 @@ exports[`custom renderer custom renderer config 1`] = `
   <button class=\\"test-button another-button-class\\"
     data-clipboard-target=\\"#code-0\\"
     style=\\"opacity: 0.1;\\" title=\\"test-title\\">
-    <span>
-      <test-tag style=\\"font-size: 10px; opacity: 0.1;\\" class=\\"test-copy\\"></test-tag>
-    </span>
+    <test-tag style=\\"display:inline-block;background:url(https://example.com/custom.svg) no-repeat center center / contain;width: 24px; height: 24px;\\" class=\\"test-copy\\"></test-tag>
   </button>
 </div>
 "
@@ -31,10 +29,8 @@ exports[`custom renderer default renderer config 1`] = `
   <pre class=\\"language-yaml\\"><code>test: unit-test<br />type: 11ty</code></pre>
   <button class=\\"code-copy \\"
     data-clipboard-target=\\"#code-0\\"
-    style=\\"position: absolute; top: 7.5px; right: 6px; cursor: pointer; outline: none; opacity: 0.8;\\" title=\\"Copy\\">
-    <span>
-      <span style=\\"font-size: 15px; opacity: 0.8;\\" class=\\"mdi mdi-content-copy\\"></span>
-    </span>
+    style=\\"position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;\\" title=\\"Copy\\">
+    <span style=\\"display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;\\" class=\\"\\"></span>
   </button>
 </div>
 "
