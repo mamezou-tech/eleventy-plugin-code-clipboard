@@ -26,7 +26,7 @@ exports[`custom renderer custom renderer config 1`] = `
 exports[`custom renderer default renderer config 1`] = `
 "
 <div style=\\"position: relative\\">
-  <pre class=\\"language-yaml\\"><code>test: unit-test<br />type: 11ty</code></pre>
+  <pre class=\\"language-yaml\\"><code id=\\"code-0\\">test: unit-test<br />type: 11ty</code></pre>
   <button class=\\"code-copy \\"
     data-clipboard-target=\\"#code-0\\"
     style=\\"position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;\\" title=\\"Copy\\">
