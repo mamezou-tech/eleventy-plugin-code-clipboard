@@ -13,7 +13,7 @@ exports[`clipboard.js initialization default plugin config 1`] = `
 exports[`custom renderer custom renderer config 1`] = `
 "
 <div style=\\"position: relative\\">
-  <pre class=\\"language-yaml\\"><code>test: unit-test<br />type: 11ty</code></pre>
+  <pre class=\\"language-yaml\\"><code id=\\"code-0\\">test: unit-test<br />type: 11ty</code></pre>
   <button class=\\"test-button another-button-class\\"
     data-clipboard-target=\\"#code-0\\"
     style=\\"opacity: 0.1;\\" title=\\"test-title\\">
