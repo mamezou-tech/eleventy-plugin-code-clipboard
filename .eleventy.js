@@ -32,7 +32,7 @@ function renderCode(origRule, rendererOptions) {
       return origRendered;
     }
     return `
-<div style="position: relative" id="code-container-${idx}">
+<div style="position: relative" id="code-container-${idx}" ${self.renderAttrs(tokens[idx])}>
   ${origRendered.replace(/<code/, `<code id="code-${idx}"`)}
   <button class="${rendererOptions.buttonClass} ${rendererOptions.additionalButtonClass}"
     data-clipboard-target="#code-${idx}"
