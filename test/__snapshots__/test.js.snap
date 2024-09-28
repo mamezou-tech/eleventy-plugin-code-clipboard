@@ -12,7 +12,7 @@ exports[`clipboard.js initialization default plugin config 1`] = `
 
 exports[`custom renderer custom renderer config 1`] = `
 "
-<div style=\\"position: relative\\">
+<div style=\\"position: relative\\" id=\\"code-container-0\\" class=\\"test\\">
   <pre class=\\"language-yaml\\"><code id=\\"code-0\\">test: unit-test<br />type: 11ty</code></pre>
   <button class=\\"test-button another-button-class\\"
     data-clipboard-target=\\"#code-0\\"
@@ -25,7 +25,7 @@ exports[`custom renderer custom renderer config 1`] = `
 
 exports[`custom renderer default renderer config 1`] = `
 "
-<div style=\\"position: relative\\">
+<div style=\\"position: relative\\" id=\\"code-container-0\\" class=\\"test\\">
   <pre class=\\"language-yaml\\"><code id=\\"code-0\\">test: unit-test<br />type: 11ty</code></pre>
   <button class=\\"code-copy \\"
     data-clipboard-target=\\"#code-0\\"

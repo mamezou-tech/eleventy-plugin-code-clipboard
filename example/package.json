@@ -11,6 +11,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.3",
-    "eleventy-plugin-code-clipboard": "file:../"
+    "eleventy-plugin-code-clipboard": "file:../",
+    "markdown-it-attrs": "^4.2.0"
   }
 }

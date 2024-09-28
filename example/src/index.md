@@ -8,7 +8,7 @@ layout: base.njk
 echo "show clipboard button on code block"
 ```
 
-```typescript
+```typescript {.copy data-container=true}
 console.log("show clipboard button");
 ```
 

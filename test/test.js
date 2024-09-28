@@ -30,6 +30,7 @@ describe('clipboard.js initialization', () => {
 
 describe('custom renderer', () => {
   let md;
+  const mockRenderAttrs = jest.fn().mockReturnValue('class="test"');
 
   beforeEach(() => {
     md = {
@@ -41,11 +42,21 @@ describe('custom renderer', () => {
     };
   });
 
+  afterEach(() => {
+    mockRenderAttrs.mockClear();
+  });
+
   test('default renderer config', () => {
     plugin.configFunction(eleventyConfig);
     plugin.markdownItCopyButton(md);
     const token = { tag: 'code', info: 'yaml', content: 'test: unit-test\ntype: 11ty' };
-    const html = md.renderer.rules.fence([token], 0);
+    const html = md.renderer.rules.fence(
+      [token],
+      0,
+      undefined,
+      undefined,
+      { renderAttrs: mockRenderAttrs },
+    );
     expect(html).toMatchSnapshot();
   });
 
@@ -65,7 +76,13 @@ describe('custom renderer', () => {
     };
     plugin.markdownItCopyButton(md, customRendererConfig);
     const token = { tag: 'code', info: 'yaml', content: 'test: unit-test\ntype: 11ty' };
-    const html = md.renderer.rules.fence([token], 0);
+    const html = md.renderer.rules.fence(
+      [token],
+      0,
+      undefined,
+      undefined,
+      { renderAttrs: mockRenderAttrs },
+    );
     expect(html).toMatchSnapshot();
   });
 

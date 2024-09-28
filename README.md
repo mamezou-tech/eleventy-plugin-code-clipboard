@@ -21,7 +21,7 @@ The clipboard button is provided by [Iconify](https://iconify.design/) [content-
 `eleventy shortcode function`
 
 This shortcode initializes clipboard.js on window.onload event.
-If clipboard copy succeeded, it shows a tooltips with message(default to `Copied!`).
+If clipboard copy succeeded, it shows tooltips with message(default to `Copied!`).
 Tooltips use [Primer Tooltips](https://primer.style/css/components/tooltips) CSS framework.
 
 ## Usage

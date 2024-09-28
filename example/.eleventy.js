@@ -1,6 +1,7 @@
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const codeClipboard = require('eleventy-plugin-code-clipboard');
 const markdownIt = require('markdown-it');
+const markdownItAttrs = require('markdown-it-attrs');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
@@ -12,7 +13,8 @@ module.exports = function (eleventyConfig) {
   const markdownLibrary = markdownIt({
     html: true,
     breaks: true,
-  }).use(codeClipboard.markdownItCopyButton);
+  }).use(markdownItAttrs)
+    .use(codeClipboard.markdownItCopyButton);
 
   eleventyConfig.setLibrary('md', markdownLibrary);
 
