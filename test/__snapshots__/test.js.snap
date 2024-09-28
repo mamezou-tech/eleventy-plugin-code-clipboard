@@ -1,23 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`clipboard.js initialization custom plugin config 1`] = `
-"<script>function showTooltip(o,e){o.trigger.className.includes(\\"tooltipped\\")||(o.trigger.children[0].className=\\"tooltipped tooltipped-s\\",o.trigger.children[0].ariaLabel=e)}window.addEventListener(\\"load\\",()=>{const o=new ClipboardJS(\\".test-button\\");o.on(\\"success\\",o=>showTooltip(o,\\"Success!!\\")),o.on(\\"error\\",o=>showTooltip(o,\\"Failure!!\\"))});</script>
-<script async src=\\"https://cdn.jsdelivr.net/npm/clipboard@2.0.0/dist/clipboard.min.js\\"></script>"
+"<script>function showTooltip(o,e){o.trigger.className.includes("tooltipped")||(o.trigger.children[0].className="tooltipped tooltipped-s",o.trigger.children[0].ariaLabel=e)}window.addEventListener("load",()=>{var o=new ClipboardJS(".test-button");o.on("success",o=>showTooltip(o,"Success!!")),o.on("error",o=>showTooltip(o,"Failure!!"))});</script>
+<script async src="https://cdn.jsdelivr.net/npm/clipboard@2.0.0/dist/clipboard.min.js"></script>"
 `;
 
 exports[`clipboard.js initialization default plugin config 1`] = `
-"<script>function showTooltip(o,e){o.trigger.className.includes(\\"tooltipped\\")||(o.trigger.children[0].className=\\"tooltipped tooltipped-s\\",o.trigger.children[0].ariaLabel=e)}window.addEventListener(\\"load\\",()=>{const o=new ClipboardJS(\\".code-copy\\");o.on(\\"success\\",o=>showTooltip(o,\\"Copied!\\")),o.on(\\"error\\",o=>showTooltip(o,\\"Failed...\\"))});</script>
-<script async src=\\"https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js\\"></script>"
+"<script>function showTooltip(o,e){o.trigger.className.includes("tooltipped")||(o.trigger.children[0].className="tooltipped tooltipped-s",o.trigger.children[0].ariaLabel=e)}window.addEventListener("load",()=>{var o=new ClipboardJS(".code-copy");o.on("success",o=>showTooltip(o,"Copied!")),o.on("error",o=>showTooltip(o,"Failed..."))});</script>
+<script async src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>"
 `;
 
 exports[`custom renderer custom renderer config 1`] = `
 "
-<div style=\\"position: relative\\" id=\\"code-container-0\\" class=\\"test\\">
-  <pre class=\\"language-yaml\\"><code id=\\"code-0\\">test: unit-test<br />type: 11ty</code></pre>
-  <button class=\\"test-button another-button-class\\"
-    data-clipboard-target=\\"#code-0\\"
-    style=\\"opacity: 0.1;\\" title=\\"test-title\\">
-    <test-tag style=\\"display:inline-block;background:url(https://example.com/custom.svg) no-repeat center center / contain;width: 24px; height: 24px;\\" class=\\"test-copy\\"></test-tag>
+<div style="position: relative" id="code-container-0" class="test">
+  <pre class="language-yaml"><code id="code-0">test: unit-test<br />type: 11ty</code></pre>
+  <button class="test-button another-button-class"
+    data-clipboard-target="#code-0"
+    style="opacity: 0.1;" title="test-title">
+    <test-tag style="display:inline-block;background:url(https://example.com/custom.svg) no-repeat center center / contain;width: 24px; height: 24px;" class="test-copy"></test-tag>
   </button>
 </div>
 "
@@ -25,15 +25,15 @@ exports[`custom renderer custom renderer config 1`] = `
 
 exports[`custom renderer default renderer config 1`] = `
 "
-<div style=\\"position: relative\\" id=\\"code-container-0\\" class=\\"test\\">
-  <pre class=\\"language-yaml\\"><code id=\\"code-0\\">test: unit-test<br />type: 11ty</code></pre>
-  <button class=\\"code-copy \\"
-    data-clipboard-target=\\"#code-0\\"
-    style=\\"position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;\\" title=\\"Copy\\">
-    <span style=\\"display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;\\" class=\\"\\"></span>
+<div style="position: relative" id="code-container-0" class="test">
+  <pre class="language-yaml"><code id="code-0">test: unit-test<br />type: 11ty</code></pre>
+  <button class="code-copy "
+    data-clipboard-target="#code-0"
+    style="position: absolute; top: 7.5px; right: 6px; padding-top: 3px; cursor: pointer; outline: none; opacity: 0.8;" title="Copy">
+    <span style="display:inline-block;background:url(https://api.iconify.design/mdi/content-copy.svg) no-repeat center center / contain;width: 16px; height: 16px;" class=""></span>
   </button>
 </div>
 "
 `;
 
-exports[`custom renderer non-lang-code token(not applied clipboard) 1`] = `"<pre class=\\"language-yaml\\"><code>test: unit-test<br />type: 11ty</code></pre>"`;
+exports[`custom renderer non-lang-code token(not applied clipboard) 1`] = `"<pre class="language-yaml"><code>test: unit-test<br />type: 11ty</code></pre>"`;
