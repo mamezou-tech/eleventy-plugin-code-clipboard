@@ -1,16 +1,17 @@
-const airbnbBase = require('eslint-config-airbnb-base');
 const jest = require('eslint-plugin-jest');
+const js = require('@eslint/js');
 
 module.exports = [
   {
     ignores: ['!.eleventy.js', 'example']
   },
   {
+    files: ["**/*.js"],
     rules: {
-      ...airbnbBase.rules,
+      ...js.configs.recommended.rules,
       'no-param-reassign': 'off',
       'no-undef': 'off',
-    },
+    }
   },
   {
     files: ['test/**'],
